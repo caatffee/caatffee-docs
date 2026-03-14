@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caatffee Docs ☕</title>
+  <meta name="description" content="Documentación oficial de Caatffee — El bot de gestión más adorable para tu servidor de Discord.">
+  <meta name="theme-color" content="#ffb6c1">
+  <link rel="icon" href="https://i.postimg.cc/XJPC1Nxs/PERFIL.jpg">
+
+  <!-- Docsify theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+
+  <style>
+    :root {
+      --theme-color: #ffb6c1;
+      --theme-color-dark: #ff8fab;
+
+      /* Sidebar */
+      --sidebar-background: #100508;
+      --sidebar-nav-link-color: #c0adb1;
+      --sidebar-nav-link-color--active: #ffb6c1;
+      --sidebar-nav-link-border-color--active: #ffb6c1;
+      --sidebar-name-color: #ffb6c1;
+      --sidebar-nav-link-font-weight--active: 800;
+
+      /* Content */
+      --content-max-width: 900px;
+      --base-background-color: #100508;
+      --base-color: #fff5f7;
+      --link-color: #ffb6c1;
+      --link-color--hover: #ff8fab;
+
+      /* Code */
+      --code-background: rgba(255,182,193,0.1);
+      --code-border-radius: 8px;
+      --code-color: #ffb6c1;
+
+      /* Headings */
+      --heading-color: #fff5f7;
+      --heading-h1-border-color: rgba(255,182,193,0.3);
+
+      /* Blockquote */
+      --blockquote-background: rgba(255,182,193,0.08);
+      --blockquote-border-color: #ffb6c1;
+      --blockquote-color: #c0adb1;
+
+      /* Table */
+      --table-head-background: rgba(255,182,193,0.12);
+      --table-row-odd-background: rgba(255,182,193,0.04);
+      --table-cell-border-color: rgba(255,182,193,0.18);
+
+      /* Navbar */
+      --navbar-background: rgba(10,4,6,0.9);
+      --navbar-menu-link-color: #c0adb1;
+      --navbar-menu-link-color--active: #ffb6c1;
+
+      /* Cover */
+      --cover-background-color: #100508;
+      --cover-background-image: none;
+
+      /* Misc */
+      --border-radius-s: 8px;
+      --border-radius-m: 14px;
+    }
+
+    /* Logo en sidebar */
+    .app-name-link img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #ffb6c1;
+      box-shadow: 0 0 16px rgba(255,182,193,0.4);
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .app-name-link {
+      display: flex;
+      align-items: center;
+      font-family: 'Georgia', serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffb6c1 !important;
+      text-decoration: none !important;
+    }
+
+    /* Sidebar mejorado */
+    .sidebar {
+      border-right: 1px solid rgba(255,182,193,0.15);
+      padding-top: 16px;
+    }
+
+    .sidebar ul li a {
+      transition: color 0.2s, padding-left 0.2s;
+      border-radius: 8px;
+      padding: 5px 10px;
+    }
+
+    .sidebar ul li a:hover {
+      color: #ffb6c1!important;
+      background: rgba(255,182,193,0.08);
+    }
+
+    /* Botones de la portada */
+    section.cover .cover-main > p:last-child a {
+      border-radius: 50px !important;
+      padding: 12px 28px !important;
+      font-weight: 800 !important;
+      font-size: 15px !important;
+      transition: transform 0.25s, box-shadow 0.25s !important;
+    }
+
+    section.cover .cover-main > p:last-child a:first-child {
+      background: linear-gradient(135deg, #ffb6c1, #ff8fab) !important;
+      color: #1a0008 !important;
+      border: none !important;
+    }
+
+    section.cover .cover-main > p:last-child a:first-child:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 28px rgba(255,143,171,0.5) !important;
+    }
+
+    section.cover .cover-main > p:last-child a:last-child {
+      border: 1.5px solid rgba(255,182,193,0.4) !important;
+      color: #fff5f7 !important;
+      background: transparent !important;
+    }
+
+    section.cover .cover-main > p:last-child a:last-child:hover {
+      border-color: #ffb6c1 !important;
+      transform: translateY(-3px) !important;
+    }
+
+    /* Cover page */
+    section.cover {
+      background: radial-gradient(ellipse at top, #1a0810 0%, #100508 60%) !important;
+    }
+
+    section.cover .cover-main h1 {
+      font-size: clamp(42px, 8vw, 80px) !important;
+      color: #fff5f7 !important;
+    }
+
+    section.cover .cover-main blockquote {
+      background: transparent !important;
+      border: none !important;
+      color: #c0adb1 !important;
+      font-size: 17px !important;
+    }
+
+    /* Tablas */
+    table {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Inline code */
+    p code, li code {
+      background: rgba(255,182,193,0.12) !important;
+      color: #ffb6c1 !important;
+      padding: 2px 8px !important;
+      border-radius: 6px !important;
+      font-size: 0.9em !important;
+    }
+
+    /* Search */
+    .search input {
+      background: rgba(255,182,193,0.08) !important;
+      border: 1px solid rgba(255,182,193,0.2) !important;
+      color: #fff5f7 !important;
+      border-radius: 50px !important;
+    }
+
+    .search input::placeholder { color: #c0adb1 !important; }
+    .search input:focus {
+      border-color: #ffb6c1 !important;
+      box-shadow: 0 0 12px rgba(255,182,193,0.2) !important;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #100508; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,182,193,0.3); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ffb6c1; }
+  </style>
+</head>
+<body>
+  <div id="app">Cargando Caatffee Docs... ☕</div>
+
+  <script>
+    window.$docsify = {
+      name: '<img src="https://i.postimg.cc/XJPC1Nxs/PERFIL.jpg">Caatffee',
+      nameLink: '/',
+      repo: 'https://github.com/caatffee/Caatffee',
+      loadSidebar: '_sidebar.md',
+      loadNavbar: '_navbar.md',
+      coverpage: '_coverpage.md',
+      onlyCover: false,
+      auto2top: true,
+      maxLevel: 3,
+      subMaxLevel: 2,
+      search: {
+        placeholder: '🔍 Buscar...',
+        noData: '😔 Sin resultados',
+        depth: 3,
+      },
+      pagination: {
+        previousText: '← Anterior',
+        nextText: 'Siguiente →',
+        crossChapter: true,
+      },
+      copyCode: {
+        buttonText: 'Copiar',
+        errorText: 'Error',
+        successText: '✅ Copiado',
+      },
+      count: {
+        countable: true,
+        fontsize: '0.9em',
+        color: 'rgba(255,182,193,0.6)',
+        language: 'spanish',
+      },
+      plugins: [],
+    }
+  </script>
+
+  <!-- Docsify core -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- Syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+</body>
+</html>
